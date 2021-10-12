@@ -38,7 +38,7 @@ namespace ArraysProject
             ammoCapacity[2] = 20;
 
             Reload();
-            Fire(5);
+            Reload();
            
             
             Console.WriteLine(weaponName[weapon] + "Ammo: " + WeaponAmmo[weapon]);
@@ -48,7 +48,11 @@ namespace ArraysProject
         static void Reload()
         {
             WeaponAmmo[weapon] = ammoCapacity[weapon];
-          
+            
+            if (WeaponAmmo[weapon] > ammoCapacity[weapon])
+            {
+                WeaponAmmo[weapon] = ammoCapacity[weapon];
+            }
         }
 
         static void Fire(int shots)
