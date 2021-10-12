@@ -17,12 +17,10 @@ namespace ArraysProject
         static int[] WeaponAmmo = new int[3];
         static string[] weaponName = new string[3];
         static int[] ammoCapacity = new int[3];
+        
 
         static void Main(string[] args)
         {
-
-
-
             WeaponAmmo[0] = 0;
             WeaponAmmo[1] = 0;
             WeaponAmmo[2] = 0;
@@ -39,7 +37,26 @@ namespace ArraysProject
 
             Reload();
             ShowHUD();
+            
+            ChangeWeapon(1);
+            Reload();
+            ShowHUD();
+            Console.WriteLine("");
             Console.WriteLine("Change Weapon");
+            Console.WriteLine("");
+
+            Fire(2);
+            ShowHUD();
+
+            Console.WriteLine("");
+            Console.WriteLine("Shooting");
+
+            Reload();
+            ShowHUD();
+
+            Console.WriteLine("");
+            Console.WriteLine("Reloading");
+            Console.WriteLine("");
 
 
 
@@ -49,11 +66,6 @@ namespace ArraysProject
         static void Reload()
         {
             WeaponAmmo[weapon] = ammoCapacity[weapon];
-
-            if (WeaponAmmo[weapon] > ammoCapacity[weapon])
-            {
-                WeaponAmmo[weapon] = ammoCapacity[weapon];
-            }
         }
 
         static void Fire(int shots)
@@ -69,16 +81,16 @@ namespace ArraysProject
         }
         static void ShowHUD()
         {
-            Console.WriteLine("---HUD---");
+            Console.WriteLine("----------");
             Console.WriteLine("");
             Console.WriteLine(weaponName[weapon]);
             Console.WriteLine("Ammo: " + WeaponAmmo[weapon] + "/" + ammoCapacity[weapon]);
 
 
         }
-        static void ChangeWeapon()
+        static void ChangeWeapon(int currentWeapon)
         {
-
+            weapon = currentWeapon; 
         }
         
 
