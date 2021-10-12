@@ -12,16 +12,17 @@ namespace ArraysProject
         static int pistolAmmo = 6;
         static int shotGunAmmo = 2;
         static int bfgAmmo = 20;
+        
 
-        static int[] WeaponAmmo;
+       static int[] WeaponAmmo = new int[3];
        static string[] weaponName = new string[3];
-        static int[] ammoCapacity;
+        static int[] ammoCapacity = new int[3];
 
         static void Main(string[] args)
         {
           
 
-            WeaponAmmo = new int[3];
+           
             WeaponAmmo[0] = 0;
             WeaponAmmo[1] = 0;
             WeaponAmmo[2] = 0;
@@ -31,11 +32,13 @@ namespace ArraysProject
             weaponName[1] = "ShotGun";
             weaponName[2] = "BFG";
 
+            
             ammoCapacity[0] = 6;
             ammoCapacity[1] = 2;
             ammoCapacity[2] = 20;
 
-            Fire();
+            Reload();
+            Fire(5);
            
             
             Console.WriteLine(weaponName[weapon] + "Ammo: " + WeaponAmmo[weapon]);
@@ -44,19 +47,20 @@ namespace ArraysProject
 
         static void Reload()
         {
-            if ( WeaponAmmo )
+            WeaponAmmo[weapon] = ammoCapacity[weapon];
           
         }
 
-        static void Fire()
+        static void Fire(int shots)
         {
-            if ( WeaponAmmo[weapon] < 0)
+            
+            WeaponAmmo[weapon] = WeaponAmmo[weapon] - shots;
+
+            if (WeaponAmmo[weapon] < 0)
             {
-                WeaponAmmo[weapon] = WeaponAmmo[weapon] = 0 ;
+                WeaponAmmo[weapon] = 0;
             }
 
-            WeaponAmmo[weapon] = WeaponAmmo[weapon] - 1;
-           
         }
 
      }   
